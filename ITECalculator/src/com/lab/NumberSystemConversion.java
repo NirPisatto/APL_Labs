@@ -31,8 +31,13 @@ public class NumberSystemConversion {
      * @return status true or false
      */
     public boolean baseNumberValidator(String value,long baseNumber){
+        boolean result = false;
         for (int i = 0; i < value.length(); i++) {
-            if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return true;
+            if (10 >= baseNumber){
+                if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return false;
+            }else{
+                if (!((int)value.charAt(i) > 64 && (int)value.charAt(i) < (65 + baseNumber))) return false;
+            }
         }
         return true;
     }
