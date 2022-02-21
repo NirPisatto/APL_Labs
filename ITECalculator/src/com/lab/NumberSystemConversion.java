@@ -6,7 +6,7 @@ package com.lab;
  * @version 1.1
  */
 public class NumberSystemConversion {
-    private String[][] methodsName = {{"Binary","Octal","Decimal","Hexadecimal"},{"2","8","10","16"}};
+    private String[][] methodsName = {{"Binary","Octal","Decimal","Hexadecimal", "19th"},{"2","8","10","16", "20"}};
 
     /**
      * decimalToBase
@@ -31,14 +31,31 @@ public class NumberSystemConversion {
      * @return status true or false
      */
     public boolean baseNumberValidator(String value,long baseNumber){
-        boolean result = false;
-        for (int i = 0; i < value.length(); i++) {
-            if (10 >= baseNumber){
-                if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return false;
-            }else{
-                if (!((int)value.charAt(i) > 64 && (int)value.charAt(i) < (65 + baseNumber))) return false;
+        value = value.toUpperCase();
+        System.out.println(value);
+        System.out.println(baseNumber);
+
+        if (10 <= baseNumber){
+            System.out.println("more 10 base");
+            for (int i = 0; i < value.length(); i++) {
+                if(Character.isDigit(value.charAt(i))){
+                    if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return false;
+                }else{
+                    if (!((int)value.charAt(i) > 64 && (int)value.charAt(i) < (65 + baseNumber - 10))) return false;
+                }
+            }
+        }else{
+
+            System.out.println("in 10 base");
+            for (int i = 0; i < value.length(); i++) {
+                if(Character.isDigit(value.charAt(i))){
+                    if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return false;
+                }else{
+                    return false;
+                }
             }
         }
+
         return true;
     }
 
@@ -137,6 +154,7 @@ public class NumberSystemConversion {
      * @return converted string of currentBaseNumber to nextBaseNumber
      */
     public String baseToBase (String baseValue,long currentBaseNumber,long nextBaseNumber){
+        baseValue = baseValue.toUpperCase();
         long decimalResultAsLong = 0;
         int powerTime = 0;
         for (int index = baseValue.length() - 1; index >= 0; index--) {

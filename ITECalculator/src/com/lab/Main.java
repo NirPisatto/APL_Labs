@@ -2,6 +2,7 @@ package com.lab;
 
 import java.lang.reflect.Method;
 import java.util.Scanner;
+import java.lang.Thread;
 /**
  *JavaDoc Bitwise class
  * @author MISA Pisatto
@@ -11,9 +12,12 @@ public class Main {
     static String[] menus = {"Arithmetic","Trigonometry","Bitwise","Money exchange", "Storage converter", "Number system conversion" ,"Exit"};
 
     public static void main(String[] args) {
+
+
         int userInputed;
         boolean isSystemUp = true;
         Scanner userInput = new Scanner(System.in);
+
 
         while (isSystemUp){
             printMenus(menus);
@@ -21,6 +25,7 @@ public class Main {
             System.out.print("Input menu > ");
 
             userInputed = userInput.nextInt();
+//            userInputed = 6;
             print("----------------------");
             print(menus[userInputed - 1]);
 
@@ -122,7 +127,7 @@ public class Main {
 
                 NumberSystemConversion OBJ = new NumberSystemConversion();
 
-                OBJ.printAllMenus(new int[]{0,1,2,3});
+                OBJ.printAllMenus(new int[]{0,1,2,3,4});
 
                 System.out.print("Input main menu > ");
                 int userInputMainMenu = userInput.nextInt();
