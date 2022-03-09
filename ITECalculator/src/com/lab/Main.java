@@ -9,7 +9,7 @@ import java.lang.Thread;
  * @version 1.1
  */
 public class Main {
-    static String[] menus = {"Arithmetic","Trigonometry","Bitwise","Money exchange", "Storage converter", "Number system conversion" ,"Exit"};
+    static String[] menus = {"Arithmetic","Trigonometry","Bitwise","Money exchange", "Storage converter", "Number system conversion","Binary Arithmetic" ,"Exit"};
 
     public static void main(String[] args) {
 
@@ -18,14 +18,12 @@ public class Main {
         boolean isSystemUp = true;
         Scanner userInput = new Scanner(System.in);
 
-
         while (isSystemUp){
             printMenus(menus);
 
             System.out.print("Input menu > ");
 
             userInputed = userInput.nextInt();
-//            userInputed = 6;
             print("----------------------");
             print(menus[userInputed - 1]);
 
@@ -153,6 +151,23 @@ public class Main {
                     System.out.print( "("+toBaseNumber+")\n\n\n\n");
                 }else {
                     System.out.println("Invalid "+OBJ.getMethodsName(true)[currentBaseMenuIndex]+ " base number values.");
+                }
+            }else if(userInputed == 7){
+                // Binary Arithmetic
+
+                BinaryArithmetic OBJ = new BinaryArithmetic();
+                NumberSystemConversion binary = new NumberSystemConversion();
+                System.out.print("a value > ");
+                StringBuilder aValue = new StringBuilder(), bValue = new StringBuilder();
+                userInput.nextLine();
+                aValue.append(userInput.nextLine());
+                System.out.print("b value > ");
+                bValue.append(userInput.nextLine());
+                if(binary.baseNumberValidator(aValue.toString(),2) && binary.baseNumberValidator(bValue.toString(),2)){
+                    System.out.println(aValue.toString() +" + "+aValue.toString()+" = "+OBJ.binaryAdd(aValue.toString(),bValue.toString()));
+                    System.out.println(aValue.toString() +" - "+aValue.toString()+" = "+OBJ.binarySubtraction(aValue.toString(),bValue.toString()));
+                }else{
+                    System.out.println("Invalid input binary number.");
                 }
             }
             else{

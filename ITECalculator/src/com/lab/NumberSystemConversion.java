@@ -32,11 +32,8 @@ public class NumberSystemConversion {
      */
     public boolean baseNumberValidator(String value,long baseNumber){
         value = value.toUpperCase();
-        System.out.println(value);
-        System.out.println(baseNumber);
 
         if (10 <= baseNumber){
-            System.out.println("more 10 base");
             for (int i = 0; i < value.length(); i++) {
                 if(Character.isDigit(value.charAt(i))){
                     if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return false;
@@ -45,8 +42,6 @@ public class NumberSystemConversion {
                 }
             }
         }else{
-
-            System.out.println("in 10 base");
             for (int i = 0; i < value.length(); i++) {
                 if(Character.isDigit(value.charAt(i))){
                     if (!((int)value.charAt(i) > 47 && (int)value.charAt(i) < (48 + baseNumber))) return false;
