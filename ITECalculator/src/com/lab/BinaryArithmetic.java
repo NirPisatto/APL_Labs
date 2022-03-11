@@ -9,8 +9,9 @@ public class BinaryArithmetic {
      * @return subtraction result
      */
     public  String binarySubtraction(String aValue, String bValue){
+        Complement com = new Complement();
         String aString = aValue;
-        String bString = Complement.findFirstComplement(bValue);
+        String bString = com.firstComplement(bValue);
         int maxLength;
         if (aValue.length() >= bValue.length()){
             maxLength = aValue.length();
@@ -18,17 +19,17 @@ public class BinaryArithmetic {
             for (int i = 0; i < aValue.length() - bValue.length(); i++) {
                 left0.append("0");
             }
-            bString = Complement.findFirstComplement(left0+bValue);
+            bString = com.firstComplement(left0+bValue);
         }else {
             maxLength = bValue.length();
         }
         StringBuilder resultString = new StringBuilder(binaryAdd(aString,bString));
-        if (resultString.length() > maxLength) return binaryAdd(resultString.substring(1).toString(),"1");
+        if (resultString.length() > maxLength) return com.secondComplement(resultString.substring(1).toString());
         String isNegative = "-";
 
-        if(Complement.findFirstComplement(resultString.toString()).contains("1")) return "-"+Complement.findFirstComplement(resultString.toString());
+        if(com.firstComplement(resultString.toString()).contains("1")) return "-"+com.firstComplement(resultString.toString());
 
-        return Complement.findFirstComplement(resultString.toString());
+        return com.firstComplement(resultString.toString());
     }
 
     /**
@@ -74,18 +75,26 @@ public class BinaryArithmetic {
     }
 
     class Complement {
+        /**
+         * Find the first complement
+         * @param value String
+         * @return the first compliment
+         */
+        public String firstComplement(String value){
+            StringBuilder resultString = new StringBuilder();
+            for (int i = 0; i < value.length(); i++) {
+                resultString.append(reverseBinary(value.charAt(i)));
+            }
+            return resultString.toString();
+        }
 
         /**
          * Find the first complement
          * @param value String
          * @return the first compliment
          */
-        static public String findFirstComplement(String value){
-            StringBuilder resultString = new StringBuilder();
-            for (int i = 0; i < value.length(); i++) {
-                resultString.append(reverseBinary(value.charAt(i)));
-            }
-            return resultString.toString();
+        public String secondComplement(String value){
+            return binaryAdd(firstComplement(value),"1");
         }
 
         /**
