@@ -2,13 +2,41 @@ package com.lab;
 
 public class BinaryArithmetic {
 
+
+    /**
+     * Binary multiplication
+     * @param aValue String
+     * @param bValue String
+     * @return subtraction result
+     */
+    public String binaryMultiplication(String aValue, String bValue){
+        StringBuilder result = new StringBuilder("0000");
+        StringBuilder adder = new StringBuilder(aValue);
+        for (int i = bValue.length() - 1 ; i >= 0; i--) {
+            if (bValue.charAt(i) == '1'){
+                result = new StringBuilder(binaryAdd(result.toString(),adder.toString()));
+            }
+            adder.append("0");
+        }
+        return result.toString();
+    }
+
+    public void binaryDivision(String aValue, String bValue){
+        NumberSystemConversion OBJ = new NumberSystemConversion();
+        String aBase10 = OBJ.baseToBase(aValue,2,10);
+        String bBase10 = OBJ.baseToBase(bValue,2,10);
+        int result = Integer.parseInt(aBase10)/Integer.parseInt(bBase10);
+        int modulo = Integer.parseInt(aBase10)%Integer.parseInt(bBase10);
+        System.out.println(aValue +" / "+bValue+" = " + OBJ.baseToBase(String.valueOf(result),10,2) +" Modulo : "+OBJ.baseToBase(String.valueOf(modulo),10,2));
+    }
+
     /**
      * Binary subtraction
      * @param aValue String
      * @param bValue String
      * @return subtraction result
      */
-    public  String binarySubtraction(String aValue, String bValue){
+    public String binarySubtraction(String aValue, String bValue){
         Complement com = new Complement();
         String aString = aValue;
         String bString = com.firstComplement(bValue);
@@ -73,6 +101,8 @@ public class BinaryArithmetic {
         }
         return resultString.reverse().toString();
     }
+
+
 
     class Complement {
         /**

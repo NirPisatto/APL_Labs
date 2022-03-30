@@ -164,8 +164,10 @@ public class Main {
                 System.out.print("b value > ");
                 bValue.append(userInput.nextLine());
                 if(binary.baseNumberValidator(aValue.toString(),2) && binary.baseNumberValidator(bValue.toString(),2)){
-                    System.out.println(aValue.toString() +" + "+aValue.toString()+" = "+OBJ.binaryAdd(aValue.toString(),bValue.toString()));
+                    System.out.println(aValue.toString() +" + "+bValue.toString()+" = "+OBJ.binaryAdd(aValue.toString(),bValue.toString()));
                     System.out.println(aValue.toString() +" - "+bValue.toString()+" = "+OBJ.binarySubtraction(aValue.toString(),bValue.toString()));
+                    System.out.println(aValue.toString() +" * "+bValue.toString()+" = "+OBJ.binaryMultiplication(aValue.toString(),bValue.toString()));
+                    OBJ.binaryDivision(aValue.toString(),bValue.toString());
                 }else{
                     System.out.println("Invalid input binary number.");
                 }
