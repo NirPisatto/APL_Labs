@@ -9,7 +9,7 @@ import java.lang.Thread;
  * @version 1.1
  */
 public class Main {
-    static String[] menus = {"Arithmetic","Trigonometry","Bitwise","Money exchange", "Storage converter", "Number system conversion","Binary Arithmetic" ,"Exit"};
+    static String[] menus = {"Arithmetic","Trigonometry","Bitwise","Money exchange", "Storage converter", "Number system conversion","Binary Arithmetic","Set operation" ,"Exit"};
 
     public static void main(String[] args) {
 
@@ -171,6 +171,20 @@ public class Main {
                 }else{
                     System.out.println("Invalid input binary number.");
                 }
+            }else if(userInputed == 8){
+                SetTheory setTheory = new SetTheory();
+                setTheory.displayAllManus();
+                System.out.print("Input menu > ");
+                userInputed = userInput.nextInt();
+                if (userInputed == 1){
+                    setTheory.intersection();
+                }else if (userInputed == 2){
+                    setTheory.union();
+                }else if (userInputed == 3){
+                    setTheory.setDiff();
+                }else{}
+
+
             }
             else{
                 isSystemUp = false;
