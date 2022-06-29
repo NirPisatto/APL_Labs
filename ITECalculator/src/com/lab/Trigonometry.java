@@ -43,6 +43,7 @@ public class Trigonometry {
     public  long square3(long x) {
         return (long)Math.pow(x, 3);
     }
+
     public  double square3(double x) {
         return (double) Math.pow(x, 3);
     }
