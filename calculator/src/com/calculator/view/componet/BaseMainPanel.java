@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class BaseMainPanel {
+public abstract class BaseMainPanel {
     private String fontColor = "#ffffff";
     private String bgColoer = "#323232";
     private Border borderStyle = BorderFactory.createEmptyBorder();
@@ -19,19 +19,15 @@ public class BaseMainPanel {
     public JLabel operationLabel = new JLabel("Operation");
     public JTextField operationTextField = new JTextField();
 
-
-
     public JPanel resultPanel =new JPanel();
     public JLabel resultLabel = new JLabel("Result");
     public JTextField resultTextField = new JTextField();
-
-
-    public JButton number1 = new JButton();
 
     private void initDisplayPanel(){
         currentDisplayPanel.setBackground(Color.decode(bgColoer));
         currentDisplayPanel.setPreferredSize(new Dimension( 550, 200 ));
         currentDisplayPanel.setLayout(new BoxLayout(currentDisplayPanel, BoxLayout.Y_AXIS));
+        currentDisplayPanel.setBackground(Color.red);
 
         operationPanel.setLayout(new GridBagLayout());
         operationPanel.setPreferredSize(new Dimension( 550,100 ));
@@ -80,8 +76,9 @@ public class BaseMainPanel {
     }
 
     private void initKeyboardPanel(){
+        currentKeyboardPanel.setLayout(new GridBagLayout());
         currentKeyboardPanel.setBackground(Color.decode("#D0D0D0"));
-        currentKeyboardPanel.setPreferredSize(new Dimension( 550, 500 ));
+//        currentKeyboardPanel.setPreferredSize(new Dimension( 550, 700 ));
     }
 
     public void initLayout(){
@@ -90,15 +87,19 @@ public class BaseMainPanel {
         this.initDisplayPanel();
         this.initKeyboardPanel();
 
-        this.currentMainPanel.setSize(550,700);
+//        this.currentMainPanel.setSize(550,900);
         this.currentMainPanel.setBackground(Color.decode("#ffffff"));
+//        this.currentMainPanel.setLayout(new BoxLayout(currentMainPanel, BoxLayout.Y_AXIS));
+
 
         // Add in to main panel
-        this.currentMainPanel.add(currentDisplayPanel, BorderLayout.PAGE_START);
-        this.currentMainPanel.add(currentKeyboardPanel, BorderLayout.PAGE_END);
+        this.currentMainPanel.add(currentDisplayPanel);
+        this.currentMainPanel.add(currentKeyboardPanel);
     }
 
     public JPanel getInterface(){
         return currentMainPanel;
     }
+
+    public abstract void customStyle();
 }

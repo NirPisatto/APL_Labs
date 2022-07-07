@@ -1,15 +1,16 @@
 package com.calculator;
 
 import com.calculator.controller.MainViewController;
+import com.calculator.model.MainViewModel;
 import com.calculator.view.MainView;
 
 public class Main {
 
     public static void main(String[] args) {
         MainView view = new MainView();
-        MainViewController viewController = new MainViewController(view);
+        MainViewModel model = new MainViewModel();
+        MainViewController controller = new MainViewController(view, model);
 
-        viewController.display();
-        viewController.togglePage(0);
+        controller.display();
     }
 }
