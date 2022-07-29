@@ -1,14 +1,12 @@
 package com.calculator.controller;
 
-import com.calculator.model.ArithmeticModel;
 import com.calculator.model.TrigonometryModel;
-import com.calculator.view.ArithmeticView;
 import com.calculator.view.TrigonometryView;
 import com.calculator.view.componet.BaseButton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
+import java.awt.event.KeyEvent;
 
 public class TrigonometryController extends BaseController {
 
@@ -77,5 +75,20 @@ public class TrigonometryController extends BaseController {
     @Override
     public JPanel getViewJpanel() {
         return trigonometryView.getInterface();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

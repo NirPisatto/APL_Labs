@@ -6,25 +6,56 @@ public class ArithmeticModel {
     private ArrayList<String> numberKeys = new ArrayList<String>();
     private ArrayList<String> operatorKeys = new ArrayList<String>();
 
-    private ArrayList<String> values = new ArrayList<String>();
-    private ArrayList<String> operators = new ArrayList<String>();
+    private String result = "";
+    private String operation = "";
+    private String lastValue = "";
+    private String currentValue = "";
+    private Boolean onWaitNumber = true;
+
+    public Boolean getOnWaitNumber() {
+        return onWaitNumber;
+    }
+
+    public void setOnWaitNumber(Boolean onWaitNumber) {
+        this.onWaitNumber = onWaitNumber;
+    }
+
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public String getCurrentValue() {
+        return currentValue;
+    }
+
+    public String getLastValue() {
+        return lastValue;
+    }
+
+    public void setCurrentValue(String currentValue) {
+        this.currentValue = currentValue;
+    }
+
+    public void setLastValue(String lastValue) {
+        this.lastValue = lastValue;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
 
     public int currentValuesIndex = 0;
 
-    public ArrayList<String> getOperators() {
-        return operators;
-    }
-    public ArrayList<String> getValues() {
-        return values;
-    }
 
-    public void setOperators(ArrayList<String> operators) {
-        this.operators = operators;
-    }
-
-    public void getValues(ArrayList<String> values) {
-        this.values = values;
-    }
 
     public ArrayList<String> getNumberKeys() {
         return numberKeys;
@@ -32,19 +63,19 @@ public class ArithmeticModel {
 
     public ArrayList<String> getOperatorKeys() { return operatorKeys; }
 
+    public void clear(){
+        result = "";
+    }
+
     public void reset(){
-        values.removeAll(values);
-        values.add("");
-
-        currentValuesIndex = 0;
-
-        operators.removeAll(operators);
+        result = "";
+        lastValue = "";
+        currentValue = "";
+        operation = "";
+        onWaitNumber = true;
     }
 
     public ArithmeticModel(){
-
-        // init values
-        values.add("");
 
         // init num keys
         numberKeys.add("0");

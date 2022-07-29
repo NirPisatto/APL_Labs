@@ -3,8 +3,9 @@ package com.calculator.controller;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
-public abstract class BaseController implements ActionListener {
+public abstract class BaseController implements ActionListener , KeyListener {
 
     public abstract void initAction();
 

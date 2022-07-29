@@ -22,6 +22,9 @@ public class MainView {
         mainFreame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFreame.setResizable(false);
         mainFreame.setSize(550,900);
+        mainFreame.setFocusable(true);
+        mainFreame.requestFocus();
+        mainFreame.requestFocusInWindow();
 
         mainPanel.setSize(550,900);
         mainPanel.setBackground(Color.decode("#ff12ff"));

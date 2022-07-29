@@ -9,9 +9,8 @@ import com.calculator.view.TrigonometryView;
 import com.calculator.view.componet.BaseMenuItem;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class MainViewController extends BaseController {
     // App config
@@ -20,7 +19,7 @@ public class MainViewController extends BaseController {
     // All pages UI
     ArithmeticView arithmeticView = new ArithmeticView();
     ArithmeticModel arithmeticModel = new ArithmeticModel();
-    ArithmeticController arithmeticController = new ArithmeticController(arithmeticView, arithmeticModel);
+    ArithmeticController arithmeticController = new ArithmeticController(arithmeticView, arithmeticModel,this);
 
     TrigonometryView trigonometryView = new TrigonometryView();
     TrigonometryModel trigonometryModel = new TrigonometryModel();
@@ -71,6 +70,7 @@ public class MainViewController extends BaseController {
         this.mainView.allMenu.forEach((BaseMenuItem baseMenuItem) -> {
             baseMenuItem.addActionListener(this);
         });
+        this.mainView.mainFreame.addKeyListener(this.arithmeticController);
     }
 
     @Override
@@ -86,4 +86,21 @@ public class MainViewController extends BaseController {
     public JPanel getViewJpanel() {
         return null;
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+
 }
